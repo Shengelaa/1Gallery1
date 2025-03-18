@@ -12,7 +12,7 @@ function displayCards(data) {
   mainDiv.innerHTML = "";
   data.forEach((item) => {
     const card = document.createElement("div");
-    let fetchedData = data;
+
     card.classList.add("card");
     const img = document.createElement("img");
     img.src = item.image_url;
@@ -59,4 +59,24 @@ document.addEventListener("DOMContentLoaded", () => {
   btn2.addEventListener("click", () => filterCategory("cat"));
   btn3.addEventListener("click", () => filterCategory("hamster"));
   btn4.addEventListener("click", () => filterCategory("all"));
+});
+
+function filterSearch(query) {
+  const cards = document.querySelectorAll(".card");
+  query = query.toLowerCase();
+
+  cards.forEach((card) => {
+    const title = card.querySelector("h3").textContent.toLowerCase();
+
+    if (title.includes(query)) {
+      card.style.display = "flex";
+    } else {
+      card.style.display = "none";
+    }
+  });
+}
+
+document.querySelector(".input").addEventListener("input", function (e) {
+  const query = e.target.value;
+  filterSearch(query);
 });

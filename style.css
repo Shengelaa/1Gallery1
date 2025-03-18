@@ -64,7 +64,29 @@ h3 {
   right: 2%;
 }
 
+.carddissapear {
+  display: none;
+}
+
 .button {
   margin-top: 5px;
   cursor: pointer;
+}
+
+.inputDiv {
+  width: 100%;
+  display: flex;
+  max-width: 1670px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.input {
+  width: 200px;
+  height: 30px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  text-align: center;
+  position: fixed;
+  color: black;
 }
