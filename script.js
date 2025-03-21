@@ -35,7 +35,30 @@ function displayCards(data) {
     card.appendChild(desc);
 
     mainDiv.appendChild(card);
+
+    img.addEventListener("click", () => openImageModal(item.image_url));
   });
+}
+
+function openImageModal(imageUrl) {
+  const existingOverlay = document.querySelector(".overlay");
+  if (existingOverlay) {
+    existingOverlay.remove();
+  }
+
+  const overlay = document.createElement("div");
+  overlay.classList.add("overlay");
+
+  const fullImage = document.createElement("img");
+  fullImage.src = imageUrl;
+  fullImage.classList.add("full-image");
+
+  overlay.addEventListener("click", () => {
+    overlay.remove();
+  });
+
+  overlay.appendChild(fullImage);
+  document.body.appendChild(overlay);
 }
 
 function filterCategory(category) {
